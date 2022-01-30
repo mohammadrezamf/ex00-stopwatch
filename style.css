@@ -1,0 +1,20 @@
+.main{
+    display: flex;
+    justify-content: center;
+}
+
+.box{
+    width: 300px
+}
+.time{
+    padding-bottom: 20px;
+    text-align: center;
+}
+.actions{
+    padding-bottom: 20px;
+    text-align: center;
+}
+.record-row{
+    display: flex;
+    justify-content: space-around;
+}
