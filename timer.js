@@ -1,11 +1,11 @@
 let timer = null;
-
+ let isConting = false
 // const $minutes = select(".minutes");
 const $seconds = select(".seconds");
 const $centi = select(".centi");
 
 // let minutes = 0;
-let seconds = 55;
+let seconds = 0;
 let centi = 0;
 
 function appendZero(number) {
@@ -49,8 +49,32 @@ function renderTime() {
 }
 
 function Timer() {
-  select(".start-btn").addEventListener("click", () => {
-    startCountingUp();
-    renderTime();
-  });
+  select(".start-btn").addEventListener("click", toggle)
+  select(".stop-btn").addEventListener("click" , reset)
+   
+}
+
+
+ 
+function toggle(){
+    if(isConting){
+      startCountingUp();
+      renderTime();
+      isConting = false
+      select(".start-btn").innerHTML = "pause"
+    }else{
+      clearInterval(timer);
+      isConting = true;
+      select(".start-btn").innerHTML="start"
+    }
+}
+
+function reset(){
+  clearInterval(timer);
+  $seconds.innerHTML = "00";
+  $centi.innerHTML = "00";
+  seconds = 0;
+  centi = 0;
+  select(".start-btn").innerHTML="start"
+  isConting = true;
 }
